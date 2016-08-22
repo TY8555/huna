@@ -1,0 +1,124 @@
+<head>
+
+   <!-- Preloader -->
+  <link rel="stylesheet" href="../../assets/css/preloader.css" type="text/css" media="screen, print"/>
+
+  <!-- Icon Font-->
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../../assets/css/owl.carousel.css">
+  <link rel="stylesheet" href="../../assets/css/owl.theme.default.css">
+  <!-- Animate CSS-->
+  <link rel="stylesheet" href="../../assets/css/animate.css">
+
+  <!-- Bootstrap -->
+  <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+  <!-- Style -->
+  <link href="../../assets/css/style.css" rel="stylesheet">
+
+  <!-- Responsive CSS -->
+  <link href="../../assets/css/responsive.css" rel="stylesheet">
+</head>
+                <!-- Preloader -->
+                <div id="preloader">
+                    <div id="status">&nbsp;</div>
+                </div>
+
+ <header id="HOME" style="background-position: 70% -127px;">
+                <nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom: 0px; background-color:white;">
+	              <div class="container">
+	                <!-- Brand and toggle get grouped for better mobile display -->
+	                <div class="navbar-header">
+	                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                  </button>
+	                  <a class="navbar-brand" href="/board/index"><img src="../../assets/logo.png" alt=""></a>
+	                </div>
+
+	                <!-- Collect the nav links, forms, and other content for toggling -->
+	                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	                  <ul class="nav navbar-nav navbar-right">
+	                    <li><a href="/board/index">내 프로필</a></li>
+	                    <li><a href="/board/write">게시글 쓰기</a></li>
+	                    <li><a href="/board/mboard">미팅 게시글</a></li>
+	                    <li><a href="/users/log_out">로그아웃</a></li>
+                      </ul>
+	                </div><!-- /.navbar-collapse -->
+	              </div><!-- /.container -->
+	            </nav>
+</header>
+<center>
+ <h2 style="margin-top:100px;">미팅 요청확인</h2>                       
+                    
+  <div style="border: 1px solid #f73b76; border-bottom: hidden; border-right: hidden; border-left: hidden; width:90%; margin-top:30px; margin-bottom:70px;">
+    <section class="header parallax home-parallax page" id="fun_facts" style="background-position: 70% -170px;">
+        <div class="container" style="margin-top: 37px; width: 100%;">                 
+                        
+        <!--게시판 불러오기-->
+        <% unless @myposts.nil? %>
+            <% @myposts.each do |c| %>
+             <% c.replies.each do |reply| %>
+                <div class = "container">
+                    <div class="col-md-offset-1 col-md-10">
+                     
+                        <% if reply.apply %>
+                          <div class="panel panel-success" style="margin-top:20px;">
+                            <div class="panel-heading">
+                              미팅이 성사되었습니다!! </br>
+                              <small>상대 카톡아이디 : <%= User.find(reply.user_id).kakao %></small>
+                            </div>
+                            <div class="panel-body">
+                                <p style="font-weight: bolder">학교,나이,인원수: <%= reply.reply_title %> </p>
+                                <p style="font-weight: bolder">소개, 자랑: <%= reply.reply %></p>
+                            </div>
+                          </div>
+                        <% else %>
+                          <div class="panel panel-default" style="margin-top:20px;">
+                              <div class="panel-heading" style="background: #ffd1d1; color:black;">
+                                <p style="font-weight:bold;">미팅 요청자: <%= User.find(c.user_id).nickname %> </p>
+                              </div>
+                              <div class="panel-body">
+                                <p style="font-weight: bolder">학교,나이,인원수: <%= reply.reply_title %> </p>
+                                <p style="font-weight: bolder">소개, 자랑: <%= reply.reply %></p>
+                              </div>
+                            <button type="submit" class="btn btn-warning" style="float:right; margin-left: 5px" onclick="location.href='/board/destory2/<%= reply.id %>'">거절</button>
+                            <button type="submit" class="btn btn-success" style="float:right" onclick="location.href='/board/check/<%= reply.id %>'">수락</button>
+                          </div>
+                        <% end %>
+                    </div>
+                    <div class="col-md-1"> </div>
+                </div>
+                <% end %>
+            <% end %>
+        <% end %> 
+                         
+                 
+        </div>
+	  </section>
+  </div>
+</center>
+                
+                
+                
+                
+<!-- =========================
+     SCRIPTS 
+============================== -->
+
+
+    <script src="../../../assets/js/jquery.min.js"></script>
+    <script src="../../../assets/js/bootstrap.min.js"></script>
+    <script src="../../../assets/js/jquery.nicescroll.js"></script>
+    <script src="../../../assets/js/owl.carousel.js"></script>
+    <script src="../../../assets/js/wow.js"></script>
+    <script src="../../../assets/js/script.js"></script>
+    <script>
+        function temp(){
+            
+        }
+    </script>

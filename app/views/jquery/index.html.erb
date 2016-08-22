@@ -1,0 +1,115 @@
+<div class="jumbotron">
+  <div class="col-md-12">
+    <h1>Jquery</h1>
+    <p>append / prepend / after / before </p>
+  </div>
+  <div class="form-group col-md-8">
+    <input type="email" class="form-control" id="content" placeholder="내용을 입력해주세요">
+  </div>
+  <button type="button" class="btn btn-success btn-append">Append</button>
+  <button type="button" class="btn btn-warning btn-prepend">Prepend</button>
+  <button type="button" class="btn btn-info btn-after">After</button>
+  <button type="button" class="btn btn-danger btn-before">Before</button>
+</div>
+<div class="col-md-12">
+    <div class="row">
+      <!--append와 prepend의 경우엔 선택한 div태그 사이에 원하는 요소가 추가된다-->
+      <!--예를들어 panel-append를 선택할 경우 append하게되면 그 요소가 div class="panel-append" 사이에 위치하게 되는 것.-->
+      <!--append 시작-->
+        <div class="col-md-6">
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                <h3 class="panel-title">Append</h3>
+              </div>
+              <div class="panel-body panel-append">
+                <div class="alert alert-success">기존텍스트</div>
+              </div>
+            </div>
+        </div>
+        <!--append 끝-->
+        <!--prepend 시작-->
+        <div class="col-md-6">
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                <h3 class="panel-title">Prepend</h3>
+              </div>
+              <div class="panel-body panel-prepend">
+                <div class="alert alert-warning">기존텍스트</div>
+              </div>
+            </div>
+        </div>
+        <!--prepend 끝-->
+    </div>
+    
+    <!--after와 Before는 조금 다르다.-->
+    <!--선택한 div사이에 위치하는 것이 아니라, div이전, 이후에 위치하도록 한다. 자주 쓰이는 것은 append와 prepend이므로 -->
+    <!--이런게 있다는 것만 알아도 충분!!-->
+    <div class="row">
+        <!--after 시작-->
+        <div class="col-md-6">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title">After</h3>
+              </div>
+              <div class="panel-body panel-after">
+                <div class="alert alert-info">기존텍스트</div>
+              </div>
+            </div>
+        </div>
+        <!--after 끝-->
+        <!--before 시작-->
+        <div class="col-md-6">
+            <div class="panel panel-danger">
+              <div class="panel-heading">
+                <h3 class="panel-title">Before</h3>
+              </div>
+              <div class="panel-body panel-before">
+                <div class="alert alert-danger">기존텍스트</div>
+              </div>
+            </div>
+        </div>
+        <!--before 끝-->
+    </div>
+</div>
+
+
+
+<script>
+    $(function(){ // $(document).ready() 와 같음. 최근에 유행하는 코드로서, 이 안에 jquery코드를 넣으면 작동함
+         
+        // append 코드
+        $(".btn-append").click(function(){ // $(".btn-append") class가 btn-append인 요소를 가져온다. id일 경우 $("#btn-append")
+            var value = $("#content").val(); // id가 컨텐츠인 요소를 불러오고 그 안에 담긴 값을 저장한다.
+            $( ".panel-append" ).append( "<div class='alert alert-success'>" + value + "</div>" );
+            $(".alert-success").last().hide().show('slow');
+            // class가 panel-append인 요소를 가져온다. 그리고 append를 실행한다
+            value = $("#content").val(""); // id가 컨텐츠인 요소의 값을 null값으로 만든다
+                                           // 빈칸이 아닌 특정값을 넣고싶을땐, 큰따옴표 사이에 값을 넣으면 된다.
+        });
+        
+        // prepend 코드
+        $(".btn-prepend").click(function(){ 
+            var value = $("#content").val();
+            $( ".panel-prepend" ).prepend( "<div class='alert alert-warning'>" + value + "</div>" );
+            $(".alert-warning").first().hide().show('slow');
+            value = $("#content").val("");
+        });
+        
+        // after 코드
+        $(".btn-after").click(function(){
+            var value = $("#content").val();
+            $( ".panel-after" ).after( "<div class='alert alert-info'>" + value + "</div>" );
+            value = $("#content").val("");
+        });
+        
+        // before 코드
+        $(".btn-before").click(function(){ 
+            var value = $("#content").val();
+            $( ".panel-before" ).before( "<div class='alert alert-danger'>" + value + "</div>" );
+            value = $("#content").val("");
+        });
+    });
+    
+</script>
+
+

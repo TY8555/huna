@@ -1,0 +1,227 @@
+<head>
+
+   <!-- Preloader -->
+  <link rel="stylesheet" href="../../assets/css/preloader.css" type="text/css" media="screen, print"/>
+
+  <!-- Icon Font-->
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../../assets/css/owl.carousel.css">
+  <link rel="stylesheet" href="../../assets/css/owl.theme.default.css">
+  <!-- Animate CSS-->
+  <link rel="stylesheet" href="../../assets/css/animate.css">
+
+  <!-- Bootstrap -->
+  <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+  <!-- Style -->
+  <link href="../../assets/css/style.css" rel="stylesheet">
+
+  <!-- Responsive CSS -->
+  <link href="../../assets/css/responsive.css" rel="stylesheet">
+</head>
+                <!-- Preloader -->
+                <div id="preloader">
+                    <div id="status">&nbsp;</div>
+                </div>
+
+ <header id="HOME" style="background-position: 50% -125px;">
+                <nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom: 0px; background-color:white;">
+	              <div class="container">
+	                <!-- Brand and toggle get grouped for better mobile display -->
+	                <div class="navbar-header">
+	                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                  </button>
+	                  <a class="navbar-brand" href="/board/index"><img src="../../assets/logo.png" alt=""></a>
+	                </div>
+
+	                <!-- Collect the nav links, forms, and other content for toggling -->
+	                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	                  <ul class="nav navbar-nav navbar-right">
+	                    <li><a href="/board/index">내 프로필</a></li>
+	                    <li><a href="/board/write">게시글 쓰기</a></li>
+	                    <li><a href="/board/mboard">미팅 게시글</a></li>
+	                    <li><a href="/users/log_out">로그아웃</a></li>
+                      </ul>
+	                </div><!-- /.navbar-collapse -->
+	              </div><!-- /.container -->
+	            </nav>
+</header>
+    <div style="margin-top: 55px;" >
+	  <center>
+	  <div style=" width:90%; margin-top:80px; margin-bottom:50px;">
+    	<section class="header parallax home-parallax page" id="fun_facts" style="background-position: 50% -150px;">	
+    		            <div class="container">
+	                <div class="row">
+	                    <div class="col-md-12 text-center" style="margin-top: 10px;">
+	                    	    <img src="../../assets/posticon.png" style="height: 70px; margin-bottom: -20px;">  
+	                            <h2><%= @write.board_title %></h2>                      
+	                    </div>
+	                </div>
+	            </div>
+	             <div class="col-md-2"></div>
+	        <div class="col-md-8 text-center" style="border: 2px solid #a8d1ca; padding-bottom: 20px; margin-top: 40px; margin-bottom: 40px;">
+	            <div class="container">
+	                <div class="row">
+	                      
+	                    
+	                    <div class='col-md-6 col-xs-12'>
+                            <div style="float:left; margin-top: 70px; width: 40%">
+                             
+                                <div class="imac2">
+                                      <%if User.find(@write.user_id).images.present? %>
+                                       <img src="<%= User.find(@write.user_id).images %>" width="220px" height="220px" class="img-circle" id="img-circle2">
+                                    <% else %>
+                                       <img src="/../assets/avatar.png" width="220px" height="220px">
+                                    <%end%>     
+                                                                       
+                                                                        
+                          <!--<img src="<%= User.find(@write.user_id).images %>" style="width:222px; margin-left: 30px">-->
+                                </div>
+                            </div>
+                                  
+                        
+                            <div class="col-md-7 col-xs-12 wow fadeInRight animated" style="margin-top:110px;">
+                                <p>닉네임 : <%= User.find(@write.user_id).nickname %></p>
+                                <p>평균 나이 : <%= @write.age %></p>
+                                <p>학교 : <%= @school %></p>
+                                 <div class="form-group">
+                                   <%= @sex == true ? "남자" : "여자" %>
+                                 </div>  
+                            </div>
+                        </div>
+                     
+                        <div class="col-md-6 col-xs-12 wow fadeInLeft animated" style="margin-top:40px;">
+                        
+	                        <div style="margin-top: 40px">
+	                            <div class="col-xs-12 col-md-12 ">
+    	                            <div class="row">
+        	                            <div class="col-xs-9 col-md-7 "> 
+        	                            
+        	                                <div class="col-md-7 ">
+            	                                <div class="single_count col-xs-12 " style="margin-left:50px">
+                                                    <!--<i class="icon-trophy">-->
+                                                    <p style="color: black;">원하는 인원 수</p>
+                                                    <h3 style="color: black;"><%= @write.number %>명</h3>
+            	                                </div>                     
+        	                                </div>
+        	                             </div>     
+
+    	                            
+        	                      <div class="col-md-4 col-xs-12">
+    	                          <button type="button" data-toggle = "modal" data-target = "#myModal" class="btn btn-default submit-btn form_submit" style="border-style:hidden; margin-top: 70px; width: 150px">미팅 신청하기</button>
+    	                           
+                                  </div>
+                                 </div>
+                                </div>
+	                        </div>
+	                    </div>
+	                   
+	                </div>
+	            </div>            
+	        </div>
+	        </section>
+	    
+	    <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default" style="margin-top:30px;">
+                      <div class="panel-heading" style="background:  #a8d1ca; color:black;"><p style="font-weight:bold;">우리 팀 소개</p></div>
+                      <div class="panel-body"><%= @write.board_content %></div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading" style="background:  #a8d1ca; color:black;"><p style="font-weight:bold;">희망하는 팀</p></div>
+                  <div class="panel-body"><%= @write.needs_team %></div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div> 
+            
+           
+    </div>
+    </div>
+
+    </center>
+    
+
+<div class="bs-example">
+    <!-- Button HTML (to Trigger Modal) -->
+   
+    
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+        <form class="form-horizontal" action="/board/apply" method="POST">
+            <input type = "hidden" value = "<%= @write.id %>" name="id_of_posts">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">미팅 요청하기</h4>
+                    </div>
+                    
+                    <div class="modal-body">
+                        
+                         <div class="form-group">
+                            <label for="message-text" class="control-label">우리팀 학교,나이,인원수,</label>
+                            <textarea class="form-control" id="message-text" rows="1" name="message2"></textarea>
+                        </div>
+                        
+                        
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">우리팀 소개, 자랑:</label>
+                            <textarea class="form-control" id="message-text" rows="4" name="message"></textarea>
+                        <p class="text-warning"><small>상대방이 요청을 승낙하면 서로의 카카오톡 아이디를 볼 수 있습니다.</small></p>
+                        </div>
+                        
+                      
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+                        <button type="submit" class="btn btn-danger">보내기</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+                
+                
+<!-- =========================
+     SCRIPTS 
+============================== -->
+
+
+    <script src="../../../assets/js/jquery.min.js"></script>
+    <script src="../../../assets/js/bootstrap.min.js"></script>
+    <script src="../../../assets/js/jquery.nicescroll.js"></script>
+    <script src="../../../assets/js/owl.carousel.js"></script>
+    <script src="../../../assets/js/wow.js"></script>
+    <script src="../../../assets/js/script.js"></script>
+    
+    
+<script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".btn").click(function(){
+		$("#myModal").modal('show');
+	});
+});
+</script>
+
+<style type="text/css">
+    .bs-example{
+    	margin: 20px;
+    }
+</style>
+   
+   
+    
+</script>

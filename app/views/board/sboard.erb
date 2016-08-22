@@ -1,0 +1,205 @@
+<head>
+
+   <!-- Preloader -->
+  <link rel="stylesheet" href="../../assets/css/preloader.css" type="text/css" media="screen, print"/>
+
+  <!-- Icon Font-->
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../../assets/css/owl.carousel.css">
+  <link rel="stylesheet" href="../../assets/css/owl.theme.default.css">
+  <!-- Animate CSS-->
+  <link rel="stylesheet" href="../../assets/css/animate.css">
+
+  <!-- Bootstrap -->
+  <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+  <!-- Style -->
+  <link href="../../assets/css/style.css" rel="stylesheet">
+
+  <!-- Responsive CSS -->
+  <link href="../../assets/css/responsive.css" rel="stylesheet">
+</head>
+                <!-- Preloader -->
+                <div id="preloader">
+                    <div id="status">&nbsp;</div>
+                </div>
+
+ <header id="HOME" style="background-position: 70% -127px;">
+                <nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom: 0px; background-color:white;">
+	              <div class="container">
+	                <!-- Brand and toggle get grouped for better mobile display -->
+	                <div class="navbar-header">
+	                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                  </button>
+	                  <a class="navbar-brand" href="/board/index"><img src="../../assets/logo.png" alt=""></a>
+	                </div>
+
+	                <!-- Collect the nav links, forms, and other content for toggling -->
+	                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	                  <ul class="nav navbar-nav navbar-right">
+	                    <li><a href="/board/index">내 프로필</a></li>
+	                    <li><a href="/board/write">게시글 쓰기</a></li>
+	                    <li><a href="/board/mboard">미팅 게시글</a></li>
+	                    <li><a href="/users/log_out">로그아웃</a></li>
+                      </ul>
+	                </div><!-- /.navbar-collapse -->
+	              </div><!-- /.container -->
+	            </nav>
+</header>
+    <div style="margin-top: 77px;" >
+    
+    
+	  <center>
+	  <img src="../../assets/sbannner.png" style="height:100px; margin-bottom: 50px; margin-top: 25px;">
+	  
+	  
+	  <!--검색-->
+	  
+	  
+        <div class="container" style="background: #f3f3f3;">
+          <form class="form-horizontal" role="form" action="/board/sboard" method="POST">
+            <div class="col-md-12">
+              <div class="row" style = "margin-top:20px">
+                <div class="col-md-4">
+                  <div class="form-group">
+                      <label for="s_headcount">인원 수</label>
+                      <select class="form-control" name="number">
+                          <option value="" selected>인원 수 선택</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6 이상</option>                                                            
+                      </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">                                                      
+                      <label for="s_sex">성별</label>
+                      <select class="form-control" name="sex">
+                          <option value="" selected>성별 선택</option>
+                          <option value="1">남자</option>
+                          <option value="2">여자</option>
+                      </select>
+                    </div>
+                  </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="school">학교</label>
+                      <select class="form-control" name="school">
+                          <option value="" selected>학교선택</option>
+                          <option value="경희대학교">경희대</option>
+                          <option value="한국외대">한국외대</option>
+                      </select>
+                    </div> 
+                  </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+          <p style="margin-top:20px">
+          <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+          <button type="button" class="btn btn-default" onclick="location.href='/board/mboard'">검색초기화</button>
+          </p>   
+            
+            
+          </form>
+              </div>
+        </div>
+	 </center>                                 
+
+	  
+	  <!--검색끝-->
+	  
+	  <!--게시글-->  
+	  <center>
+    <div align="center" class="col-md-8 col-md-offset-2" style="background: white;">
+	  <div style="border: 1px solid #f73b76; border-bottom: hidden; border-right: hidden; border-left: hidden; width:90%; margin-top:20px; margin-bottom:70px;">
+    	<section class="header parallax home-parallax page" id="fun_facts" style="background-position: 70% -170px;">
+                <div class="container" style="margin-top: 37px; width: 100%;">                 
+                   <table class="table forum table-striped">
+                    <thead>
+                      <tr>
+                        <th class="cell-stat"></th>
+                        <th class="cell-stat">성별</th>
+                        <th class="cell-stat text-center hidden-xs hidden-sm">글 제목</th>
+                        <th class="cell-stat text-center hidden-xs hidden-sm">인원 수</th>
+                        <th class="cell-stat text-center hidden-xs hidden-sm">진행 여부</th>
+                        <th class="cell-stat-2x hidden-xs hidden-sm">올린 날짜</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    
+                    
+                    <!--게시판 불러오기-->
+                      <% @write.each do |b| %>
+                      <tr>
+                        <td class="text-center">
+                        <% if User.find(b.user_id).sex == true %>
+                                     <img src="/assets/men.png" alt="Man" height="42" width="42"><br>
+                        <% else %>
+                                     <img src="/assets/woman.png" alt="Woman" height="42" width="42"><br>
+                        <% end %>
+                               
+                          <%= User.find(b.user_id).nickname %>
+                        </td>
+                        <td style="vertical-align: middle">
+                          <%= User.find(b.user_id).sex == true ? "남자" : "여자"  %>
+                        </td>
+                        <td align="center">
+                          <h4><a href="/board/posts/<%= b.id %>"><%= b.board_title %></a><br><small><%= User.find(b.user_id).school %>/평균나이:<%= b.age %></small></h4>
+                        </td>
+                        <td class="text-center hidden-xs hidden-sm" style="vertical-align: middle">
+                          <%= b.number %>명</a>
+                        </td>
+                        <td class="text-center hidden-xs hidden-sm" style="vertical-align: middle">
+                          <%= b.replies.where('apply = ?', true).take.nil? ? "모집중" : "모집완료" %>
+                        </td>
+                        <td class="hidden-xs hidden-sm" style="vertical-align: middle">
+                        <i class="fa fa-clock-o"></i>
+                     
+                        <%= b.created_at.in_time_zone("Asia/Seoul").strftime("%Y년%m월%d일 %H시%M분") %> </br>
+                        <%= time_ago_in_words(b.created_at) %> ago
+                        
+                        </td>
+                      </tr>
+                      <% end %> 
+                     
+                                                             
+                    </tbody>
+                  </table>
+                </div>
+                <div class="apple_pagination" style = "background:white;">
+                <%= will_paginate @write, previous_label: h("<"), next_label: h(">") %>
+                </div>
+	    </section>
+    </div>
+    </center>
+                
+                
+                
+                
+<!-- =========================
+     SCRIPTS 
+============================== -->
+
+
+    <script src="../../../assets/js/jquery.min.js"></script>
+    <script src="../../../assets/js/bootstrap.min.js"></script>
+    <script src="../../../assets/js/jquery.nicescroll.js"></script>
+    <script src="../../../assets/js/owl.carousel.js"></script>
+    <script src="../../../assets/js/wow.js"></script>
+    <script src="../../../assets/js/script.js"></script>
+    <script> $('.dropdown-toggle').dropdown() </script>
+    
+   <%= javascript_tag do %>
+     $(function() {
+       $("time.timeago").timeago();
+     });
+   <% end %>
+

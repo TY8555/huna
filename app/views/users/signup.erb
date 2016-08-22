@@ -1,0 +1,326 @@
+
+<style>
+  .form-group {
+    margin-bottom:10px;
+  }
+  
+</style>
+
+<div class="col-md-offset-3 col-md-6 text-center" id="pc">
+    <div class="work_title  wow fadeInUp animated">
+      
+        <h1>회원가입</h1> 
+        <img src="../assets/shape.png" alt="">
+    </div>
+    <form class="form-horizontal"  enctype="multipart/form-data" id="ex1" action="/users/create" method="POST">
+   
+      
+      <div class="form-group">  
+        <label class="col-sm-2 control-label">아이디</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="email" name="user_email" placeholder="email" required="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">비밀번호</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="password" name="password"  placeholder="비밀번호" required="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">비밀번호 확인</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="password" name="confirm_password" placeholder="비밀번호 확인" required="">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label class="col-sm-2 control-label">닉네임</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" name="nickname" placeholder="닉네임" required="">
+        </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">사진 첨부</br>(프로필)</label>
+                  <div id="aa">
+          <input type="file" name="pic" accept="image/*" style="width=200px" >
+                  </div>
+                
+
+        </div>
+      
+      
+     
+      <div class="form-group">
+      <label class="col-sm-2 control-label" for="formGroupInputLarge">카카오톡 ID</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" name="kakao" placeholder="카카오톡 아이디" required="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">학교</label>
+        <div class="col-sm-4">
+        <select class="form-control" name="school">
+          <option value="경희대학교">경희대학교</option>
+          <option value="한국외대">한국외대</option>        
+        </select>
+        </div>             
+        
+        <label class="col-sm-2 control-label" name="age" >나이</label>
+        <div class="col-sm-4">
+       
+           <input class="form-control" type="number" name="age"  placeholder="나이" required="" min="19" max="29">
+        </div>
+       </div>
+       
+       
+       
+      
+       <div class="form-group">
+      
+          <label class="col-sm-2 control-label" required="">학번</label>
+         
+               
+          <div class="col-sm-2">
+           
+ 
+	    	   <input class="ty" type="text" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' style='ime-mode:disabled;' maxlength="10" size="30"  pattern=".{9,10}" required title="숫자 9자리 혹은 10자리" name="student_number" >
+	    	 
+	    	  </div>
+
+	    	 
+	    
+	    	  <div class="col-sm-2">
+      	   
+          </div>
+    
+  
+    
+    
+       
+
+          
+          <div class="col-sm-4" id="aaa" >
+         <p style="color:blue"> *학번은 학교인증용입니다</p>
+          </div>
+          </div>
+      
+  
+        
+    
+     
+   <div class="form-group">
+          <label class="col-sm-2 control-label">성별</label>
+          <label class="radio-inline">
+            <input type="radio" name="sex" value="남자"> 남자
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="sex" value="여자"> 여자
+          </label>
+   </div>
+      
+         
+      <div class="form-group">
+        <button type="submit" class="btn btn-default submit-btn form_submit user_submit" style="border-style:hidden">회원가입하기</button>
+      </div>
+      <div class="form-group">
+        <button type="button" class="btn btn-primary cs-btn" style="border-style:hidden; width:100%" onclick="location.href='/'">취소</button>
+      </div>
+       
+       </form>
+       
+  
+    
+</div>
+
+<div class="col-md-offset-3 col-md-6 text-center" id="mobile">
+    <div class="work_title  wow fadeInUp animated">
+      
+        <h1>회원가입</h1> 
+        <img src="../assets/shape.png" alt="">
+    </div>
+    <form class="form-horizontal"  enctype="multipart/form-data" id="ex1" action="/users/create" method="POST">
+   
+      
+      <div class="form-group">  
+        <label class="col-sm-2 control-label">아이디</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="email" name="user_email" placeholder="email" required="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">비밀번호</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="password" name="password"  placeholder="비밀번호" required="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">비밀번호 확인</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="password" name="confirm_password" placeholder="비밀번호 확인" required="">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label class="col-sm-2 control-label">닉네임</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" name="nickname" placeholder="닉네임" required="">
+        </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">사진 첨부</br>(프로필)</label>
+                  <div id="aa">
+          <input type="file" name="pic" accept="image/*" style="width=200px" >
+                  </div>
+                
+
+        </div>
+      
+      
+     
+      <div class="form-group">
+      <label class="col-sm-2 control-label" for="formGroupInputLarge">카카오톡 ID</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="text" name="kakao" placeholder="카카오톡 아이디" required="">
+        </div>
+      
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">학교</label>
+        <div class="col-sm-4">
+        <select class="form-control" name="school">
+          <option value="경희대학교">경희대학교</option>
+          <option value="한국외대">한국외대</option>        
+        </select>
+        </div>             
+        
+        <label class="col-sm-2 control-label" name="age" >나이</label>
+        <div class="col-sm-4">
+       
+           <input class="form-control" type="number" name="age"  placeholder="나이" required="" min="19" max="29">
+        </div>
+       </div>
+       
+       
+       
+      
+       <div class="form-group">
+      
+          <label class="col-sm-2 control-label" required="" 학번</label>
+         
+               
+          <div class="col-sm-2">
+            
+	    	   
+	    	  </div>
+	    	
+	    	 
+	    
+	    	  <div class="col-sm-2">
+	    	  <input class="ty1" type="text" maxlength="10" pattern="[0-9]{9,10}" required title="숫자 9자리 혹은 10자리" name="student_number">
+      	   <!--<input class="ty1"  type='number' max="9999999999" minlength="9" maxlength="10" oninput="maxLengthCheck(this)" required="">-->
+          </div>
+    
+ 
+    
+    
+       
+
+          
+          <div class="col-sm-4" id="aaa" >
+         <p style="color:blue"> *학번은 학교인증용입니다</p>
+          </div>
+          </div>
+      
+  
+        
+    
+     
+   <div class="form-group">
+          <label class="col-sm-2 control-label">성별</label>
+          <label class="radio-inline">
+            <input type="radio" name="sex" value="남자"> 남자
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="sex" value="여자"> 여자
+          </label>
+   </div>
+      
+         
+      <div class="form-group">
+        <button type="submit" class="btn btn-default submit-btn form_submit user_submit" style="border-style:hidden">회원가입하기</button>
+      </div>
+      <div class="form-group">
+        <button type="button" class="btn btn-primary cs-btn" style="border-style:hidden; width:100%" onclick="location.href='/'">취소</button>
+      </div>
+       
+       </form>
+       
+  
+    
+</div>  
+
+ 
+<script>
+	
+function onlyNumber(event){
+event = event || window.event;
+var keyID = (event.which) ? event.which : event.keyCode;
+if ( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
+return;
+else
+return false;
+}
+
+function removeChar(event) {
+event = event || window.event;
+var keyID = (event.which) ? event.which : event.keyCode;
+if ( keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
+return;
+else
+event.target.value = event.target.value.replace(/[^0-9]/g, "");
+}
+
+//maxlength 체크
+function maxLengthCheck(object){
+if (object.value.length > object.maxLength){
+object.value = object.value.slice(0, object.maxLength);
+}    
+}
+
+var $input = $('.ty1')
+$input.keyup(function(e) {
+    var max = 10;
+    if ($input.val().length > max) {
+        $input.val($input.val().substr(0, max));
+    }
+});
+
+// $(".btn btn-default submit-btn form_submit user_submit").click(function(){
+  
+// alert("회원가입이 완료되었습니다");
+  
+// $.ajax({
+// method: "POST",
+// url: "/users/create",
+// data: { name: "<John></John>",  }
+// })
+
+// .done(function( msg ) {
+//     alert( "Data Saved: " + msg );
+//   });
+
+// function numberCheck()
+// {
+// var number = /[^0-9]/; //숫자만 허용
+// var form = document.form;
+
+// if ( form.numberText.value.search(number)!=-1 || form.numberText.value.length > 10 || form.numberText.value.length < 9){
+// alert("12자리의 숫자를 입력해주세요");
+// form.numberText.focus();
+// return;
+// }
+// }
+
+
+</script>
