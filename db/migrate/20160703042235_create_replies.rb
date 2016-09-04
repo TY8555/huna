@@ -7,6 +7,7 @@ class CreateReplies < ActiveRecord::Migration
       t.string :reply
       t.boolean :apply, default: false, null: false
       t.timestamps null: false
+
     end
   end
 end

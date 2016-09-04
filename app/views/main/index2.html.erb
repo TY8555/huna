@@ -7,7 +7,11 @@
 
 
     <header id="HOME" style="background-position: 50% -125px;">
-	        <div class="section_overlay" style="height:800px">
+
+ <!--이전코드	        <div class="section_overlay" style="height:800px"> -->
+ 
+ 
+            <div class="" style="height:800px; background: white;" id="11"; >
                 <nav class="navbar navbar-default navbar-fixed-top" style="background-color: white;">
 	              <div class="container">
 	                <!-- Brand and toggle get grouped for better mobile display -->
@@ -26,7 +30,7 @@
 	                  <ul class="nav navbar-nav navbar-right">
 	                    <li><a href="#HOME">후나 홈</a></li>
 	                    <li><a href="#SERVICES">내 프로필</a></li>
-	                    <li><a href="#ABOUT">미팅 게시글</a></li>
+	                    <li><a href="#ABOUT">전체 게시글</a></li>
 	                   
 	                </div><!-- /.navbar-collapse -->
 	              </div><!-- /.container -->
@@ -34,24 +38,28 @@
 	            
 	            <div class="container">
 	                <div class="row">
-	                    <div class="col-md-12 text-center" style="margin-top: 100px;">
+	                    <div class="col-md-12 text-center" style="margin-top: 30px;" id="mm">
 	                        <div class="home_text wow fadeInUp animated">
-	                          <div class="col-xs-6">
-	                            <img src="../assets/mainpg_logo.png" style="width: 300px;">   
+	                          <div class="col-xs-12">
+	                            <img src="../assets/mainpg_logo.png" style="width: 250px;">   
 	                          </div>
 						 	  <div class="col-xs-12">
 	                            <form action="/users/log_up_process" method="POST" style="margin-top:20px;">
-									<input id="horizon" type="eamil" class="form-control" name="email" placeholder="Email" style="margin-bottom:10px; height:40px; width:300px;">
-	                                <input id="horizon" type="password" clasWs="form-control" name="password" placeholder="Password" style="margin-bottom:10px; height:40px; width:300px;">
-	                                <button id="horizon" type="submit" class="btn btn-default submit-btn form_submit" style="border-style:hidden; margin-bottom: 8px; height:37px; width:300px;">로그인</button>
+									<input id="horizon" type="eamil" class="form-control" name="email" placeholder="Email" style="margin-bottom:10px; height:35px; width:270px;">
+	                                <input id="horizon" type="password" clasWs="form-control" name="password" placeholder="Password" style="margin-bottom:10px; height:35px; width:270px;">
+	                                <button id="horizon" type="submit" class="btn btn-fill btn-block glyphicon glyphicon-ok right" style="border-style:hidden; background: #f73b56; margin-bottom: 8px; height:35px; width: 270px;"><div>로그인</div></button>
+                            	<!-- br시 w270, 로그인바  w49%, min-w 200  -->
                             	</form>	 
                             	
-                            	<div class="col-xs-11">
-                            	<p align="right">
-                                <a href="/users/signup" style="color: #f599b7; margin-top:10px;" class="bb">회원가입하기</a>
-                                <a href="" data-toggle = "modal" data-target = "#myModal" class="bb" style="color: #f599b7; margin-top:10px; margin-left:20px;">아이디/비밀번호 찾기</a>
+
+                            	<div class="col-xs-12">
+                            	<p align="center">
+                                <a href="/users/signup" style="color: #413a3b; margin-top:10px;" >회원가입하기</a>
+                                <a href="" data-toggle = "modal" data-target = "#myModal"  style="color: #413a3b; margin-top:10px; margin-left:20px;">아이디/비밀번호 찾기</a>
                                 </p>
                                 </div>
+                                
+                                <!-- 분홍색 #f599b7 -->
                                 
                                </div>
 	                        </div>

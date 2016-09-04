@@ -45,7 +45,7 @@
 	                  <ul class="nav navbar-nav navbar-right">
 	                    <li><a href="/board/index">내 프로필</a></li>
 	                    <li><a href="/board/write">게시글 쓰기</a></li>
-	                    <li><a href="/board/mboard">미팅 게시글</a></li>
+	                    <li><a href="/board/mboard">전체 게시글</a></li>
 	                    <li><a href="/users/log_out">로그아웃</a></li>
                       </ul>
 	                </div><!-- /.navbar-collapse -->
@@ -53,44 +53,66 @@
 	            </nav>
 </header>
 <center>
- <h2 style="margin-top:100px;">미팅 요청확인</h2>                       
-                    
-  <div style="border: 1px solid #f73b76; border-bottom: hidden; border-right: hidden; border-left: hidden; width:90%; margin-top:30px; margin-bottom:70px;">
-    <section class="header parallax home-parallax page" id="fun_facts" style="background-position: 70% -170px;">
-        <div class="container" style="margin-top: 37px; width: 100%;">                 
-                        
+  <div class="col-md-2"></div>
+ <div class="col-md-8 col-offset-md-2 col-xs-12" style =" background: #e95b5b; margin-top: 50px; margin-bottom: 90px;">
+    
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+  <img src="../../assets/mesb.png" style="height:90px;  margin-top: 70px; margin-bottom: 70px;">   
+  </div>
+  <div class="col-md-4"></div>
+  
+  </div>               
+  
+    <section class="header parallax home-parallax page col-md-12"   id="fun_facts" style="background-position: 70% -170px; margin-top: -70px">
+        <!--<div class="container " style="margin-top: 37px; width: 90%;">                 -->
+                       
         <!--게시판 불러오기-->
         <% unless @myposts.nil? %>
             <% @myposts.each do |c| %>
              <% c.replies.each do |reply| %>
-                <div class = "container">
-                    <div class="col-md-offset-1 col-md-10">
-                     
+              <div class="col-md-2"></div>
+              <div class="col-md-8 col-xs-12"  id="mypostmobile">
+                    <!--<div class="col-md-offset-1">-->
+                    
+                     <!--style="padding-right: 100px"-->
                         <% if reply.apply %>
-                          <div class="panel panel-success" style="margin-top:20px;">
-                            <div class="panel-heading">
+                          <div class="panel panel-success " style="margin-top:20px;  border: 1px solid #fff4ba; ">
+                            <div class="panel-heading" style="background: #fff4ba; color: #3d3838; border: 1px solid #fff4ba;">
                               미팅이 성사되었습니다!! </br>
                               <small>상대 카톡아이디 : <%= User.find(reply.user_id).kakao %></small>
                             </div>
                             <div class="panel-body">
-                                <p style="font-weight: bolder">학교,나이,인원수: <%= reply.reply_title %> </p>
-                                <p style="font-weight: bolder">소개, 자랑: <%= reply.reply %></p>
+                                <p style="font-weight: bolder;">학교,나이,인원수: <%= reply.reply_title %> </p>
+                                <p style="font-weight: bolder;">소개, 자랑: <%= reply.reply %></p>
                             </div>
+                            
+                            <button type="submit" class="btn btn-warning" style="float:right; margin-left: 5px" onclick="location.href='/board/destory2/<%= reply.id %>'">삭제</button>
+                            
                           </div>
                         <% else %>
-                          <div class="panel panel-default" style="margin-top:20px;">
-                              <div class="panel-heading" style="background: #ffd1d1; color:black;">
-                                <p style="font-weight:bold;">미팅 요청자: <%= User.find(c.user_id).nickname %> </p>
+                        
+                        
+                          <div class="panel panel-default" style="margin-top:20px;  border: 1px solid #fff4ba;">
+                            
+                              
+                            
+                              <div class="panel-heading" style="background: #fff4ba; color: #3d3838;  border: 1px solid #fff4ba;">
+                                <p style="font-weight:bold;">미팅 요청자: <%= User.find(reply.user_id).nickname %> </p>
                               </div>
-                              <div class="panel-body">
+                              <div class="panel-body ">
                                 <p style="font-weight: bolder">학교,나이,인원수: <%= reply.reply_title %> </p>
                                 <p style="font-weight: bolder">소개, 자랑: <%= reply.reply %></p>
                               </div>
                             <button type="submit" class="btn btn-warning" style="float:right; margin-left: 5px" onclick="location.href='/board/destory2/<%= reply.id %>'">거절</button>
-                            <button type="submit" class="btn btn-success" style="float:right" onclick="location.href='/board/check/<%= reply.id %>'">수락</button>
+                            <button type="submit" class="btn btn-success" style="float:right; background: #a4c0f9; border: 1px solid #a4c0f9;" onclick="location.href='/board/check/<%= reply.id %>'">수락</button>
+                 
+                             
                           </div>
+                           <div class="col-md-2"></div>
                         <% end %>
-                    </div>
+                        </div>
+             
                     <div class="col-md-1"> </div>
                 </div>
                 <% end %>
@@ -98,10 +120,11 @@
         <% end %> 
                          
                  
-        </div>
-	  </section>
+        <!--</div>-->
+
   </div>
-</center>
+   </section>
+  </center>
                 
                 
                 

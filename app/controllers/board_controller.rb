@@ -2,7 +2,9 @@ class BoardController < ApplicationController
     before_action :require_user
     
     def index
+        
         @write = Board.last(4).reverse
+        
         
         
         unless session['user_id'].nil?
@@ -14,12 +16,39 @@ class BoardController < ApplicationController
             @kakao=User.find(session['user_id']).kakao
         end
         @myposts = Board.where('user_id = ?', session['user_id'])
+        @myreplies = Reply.where('user_id = ?', session['user_id'])
         @reply_count = 0
-        @apply_count = 0
+
+        @ask_count = @myreplies.all
+        
+        
+        
         @myposts.each do |mypost|
             @reply_count += mypost.replies.count
-            @apply_count += mypost.replies.where('apply = ?', true).count
         end
+                
+        
+        
+        
+        #수정이전코드
+        #@write = Board.last(4).reverse
+        
+        
+        #unless session['user_id'].nil?
+        #    @user = User.find(session['user_id']).images
+        #    @nickname=User.find(session['user_id']).nickname
+        #    @school=User.find(session['user_id']).school
+        #    @age=User.find(session['user_id']).age
+        #    @sex=User.find(session['user_id']).sex
+        #    @kakao=User.find(session['user_id']).kakao
+        #end
+        #@myposts = Board.where('user_id = ?', session['user_id'])
+        #@reply_count = 0
+        #@apply_count = 0
+        #@myposts.each do |mypost|
+        #    @reply_count += mypost.replies.count
+        #    @apply_count += mypost.replies.where('apply = ?', true).count
+        #end
           
         
     end
@@ -61,7 +90,7 @@ class BoardController < ApplicationController
     end
     
     def mboard
-        @write = Board.all.order("created_at desc").paginate(:page => params[:page], :per_page => 3)
+        @write = Board.all.order("created_at desc").paginate(:page => params[:page], :per_page => 7)
         
    
         unless session['user_id'].nil?
@@ -78,7 +107,7 @@ class BoardController < ApplicationController
     def sboard
     #   @result = User.where('sex == ?', true )
         # # @school = User.where('school ==?', )
-        @write = Board.all.order("created_at desc").paginate(:page => params[:page], :per_page => 3)
+        @write = Board.all.order("created_at desc").paginate(:page => params[:page], :per_page => 7)
         user_info = User.all
         if params[:number] != ""
              @write = @write.where('number = ?', params[:number])
@@ -123,10 +152,13 @@ class BoardController < ApplicationController
         message.reply = params[:message]
         message.board_id = params[:id_of_posts]
         message.user_id = session['user_id']
+
+
+        
+        
         message.save
         
         redirect_to(:back)
-        
         
     end
     
@@ -176,6 +208,15 @@ class BoardController < ApplicationController
         redirect_to "/board/message_check"
     end
     
+    
+    
+    def destory3
+        one_reply = Reply.find(params[:id])
+        one_reply.destroy
+        redirect_to "/board/ask"
+    end
+    
+    
     def check
         one_reply = Reply.find(params[:id])
         one_reply.apply = true
@@ -187,23 +228,77 @@ class BoardController < ApplicationController
     end
     
     def modify_profile
+           
             modifyuser=User.find(session['user_id'])
             
             unless params[:nickname].nil?
                 modifyuser.nickname = params[:nickname]
-                modifyuser.save
+             
             end
             unless params[:kakao].nil?
                 modifyuser.kakao = params[:kakao]
-                modifyuser.save
+             
             end
             unless params[:age].nil?
                 modifyuser.age = params[:age]
-                modifyuser.save
+               
             end
+            unless params[:pic].nil?
+                uploader = ProfileUploader.new
+                uploader.store!(params[:pic])
+                modifyuser.images = uploader.url
+              
 
+                modifyuser.save
+            
+                     
+            end
+        
+      
                 
         redirect_to '/board/index'
+    end
+    
+    
+    def ask
+        @myreplies = Reply.where('user_id = ?', session['user_id']).reverse
+        
+        # m상대 카톡아이디
+        # m신청대상 닉네임 상대
+         @thepost = Board.where(params[:id_of_posts])
+    end
+    
+    
+    
+    
+    
+    
+    def ex
+        #수정된 부분: ex.erb/ board_cont / replies db
+        
+        @write = Board.last(4).reverse
+        
+        
+        unless session['user_id'].nil?
+            @user = User.find(session['user_id']).images
+            @nickname=User.find(session['user_id']).nickname
+            @school=User.find(session['user_id']).school
+            @age=User.find(session['user_id']).age
+            @sex=User.find(session['user_id']).sex
+            @kakao=User.find(session['user_id']).kakao
+        end
+        @myposts = Board.where('user_id = ?', session['user_id'])
+        @myreplies = Reply.where('user_id = ?', session['user_id'])
+        @reply_count = 0
+
+        @ask_count = @myreplies.all
+        
+        
+        
+        @myposts.each do |mypost|
+            @reply_count += mypost.replies.count
+        end
+        
     end
     
 

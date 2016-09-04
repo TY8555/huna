@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   
   # 게시글 관련 주소
   get "board/index"
+  get "board/aa"
   post "board/create"
   get "board/update"
   get "board/delete"
@@ -24,6 +25,8 @@ Rails.application.routes.draw do
   get "board/message_check"
   get "board/check/:id" => "board#check"
   post "board/modify_profile"
+  get "board/ask"
+  get "board/destory3/:id" => "board#destory3"
   
   # 유저정보 관련 주소
   get "users/signup"
@@ -32,7 +35,11 @@ Rails.application.routes.draw do
   post  'users/log_up_process'
   get  'users/log_out'
   post 'users/find'
+  get  "user/modify_profile"
 
+
+ # 베타
+ get "board/ex"
   
   
   

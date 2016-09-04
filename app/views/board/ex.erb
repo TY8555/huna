@@ -1,0 +1,257 @@
+                <!-- Preloader -->
+                <div id="preloader">
+                    <div id="status">&nbsp;</div>
+                </div>
+
+ <header id="HOME" style="background-position: 50% -125px;">
+                <nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom: 0px; background-color:white;">
+	              <div class="container">
+	                <!-- Brand and toggle get grouped for better mobile display -->
+	                <div class="navbar-header" >
+	                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                  </button>
+	                  <a class="navbar-brand" href="/board/index"><img src="../assets/logo.png" alt=""></a>
+	                </div>
+
+	                <!-- Collect the nav links, forms, and other content for toggling -->
+	                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+	                  <ul class="nav navbar-nav navbar-right">
+	                    <li><a href="/board/index">내 프로필</a></li>
+	                    <li><a href="/board/write">게시글 쓰기</a></li>
+	                    <li><a href="/board/mboard">미팅 게시글</a></li>
+	                    <li><a href="/users/log_out">로그아웃</a></li>
+                      </ul>
+	                </div><!-- /.navbar-collapse -->
+	              </div><!-- /.container -->
+	            </nav>
+</header>
+
+    <div class="fun_facts" style="margin-top: 55px; ">
+    	<section class="header parallax home-parallax page" id="fun_facts" style="background-position: 50% -150px; background:#ffb3a9;">
+    	       <!--<노란색 #F5B041 >--> 
+    	       <!--분홍색: #ffb3a9-->
+    	       <!--하늘색: #5499C7-->
+    	       <!--연두색: #a8d1ca -->
+    	       
+	            <div class="container">
+	                <div class="row">
+	                    <div class='col-md-6 col-xs-12'>
+	                        <div class="row">
+                                <div class="col-md-5 col-xs-6 wow fadeInRight animated" style="float:left; margin-top: 70px; width: 40%">
+                                    <div class="imac" >
+                                         <!-- 프로필사진 !-->
+                                    
+                                                  
+                                    <% if @user.present? %>
+                                       <img src="<%= @user %>" class="img-circle" id="img-circle" style="margin-left: 20px;" > 
+                                       <!--object-fit_fill-->
+                                    <% else %>
+                                       <img src="../assets/avatar.png" class="img-circle" >
+                                    <% end %>                                    
+         
+                                    </div>
+                          
+                            
+                                </div>
+                                <div class="col-md-5 col-xs-offset-1 col-xs-5 wow fadeInRight animated" style="margin-top:100px; color: white;">
+                                
+                                    <p>이름 : <%=@nickname%></p>
+                                    <p>나이 : <%=@age%></p>
+                                    <p>학교 : <%=@school%></p>
+                                    <p>성별 : <%= @sex == true ? "남자" : "여자" %></p>
+                                    <a href="" data-toggle = "modal" data-target = "#myModal" style="color: #f73b56;">프로필 수정하기</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="kisu" class="col-md-6 col-xs-12 wow fadeInLeft animated" style="float:right; visibility: hidden !important;">
+                            <div style ="margin-top: 30px ">
+                                
+    	                        <div class="row">
+    	                            <div class="col-md-4 col-xs-4">
+    	                                <div class="single_count">
+    	                                    <!--<i class="icon-toolbox"></i>-->
+    	                                    <p>내가 쓴 글</p>
+    	                                    <a href="/board/myposts"><h3><%= @myposts.count %> 건</h3></a>                                   
+    	                                </div>
+    	                            </div>
+    	                            <div class="col-md-4 col-xs-4">
+    	                                <div class="single_count">
+    	                                    <!--<i class="icon-clock"></i>-->
+    	                                    <p>받은 메시지</p>
+    	                                    <a href="/board/message_check"><h3><%= @reply_count %>건</h3></a> 
+    	                                </div>                            
+    	                            </div>
+    	                            <div class="col-md-4 col-xs-4">
+    	                                <div class="single_count">
+    	                                    <!--<i class="icon-trophy">-->
+    	                                    <p>신청한 미팅</p>
+    	                                    <a href="/board/ask"><h3><%= @ask_count.count %> 건</h3></a>
+    	                                </div>                            
+    	                            </div>
+    	                        </div>
+
+                                 
+    	                        <div class="col-md-12">
+    	                            
+    	                         
+    	                    <div style="margin-top: 40px; margin-left: -40px" class="bbb">
+    	                        <button type="submit" class="btn btn-default submit-btn form_submit" style="border-style:hidden;  margin-bottom: 14px;" onclick="location.href='/board/write'">미팅 게시글 쓰기</button>
+                            </div>
+	                    </div>
+	                    </div>
+	                    <!--<div id="kisu2" style="position:relative; left: 50%; margin-left: -150px; margin-top: 40px; width: 300px;">-->
+	                    <!--    <div style="">-->
+    	                <!--        내가 쓴 글-->
+    	                <!--        <a href="/board/myposts"><h3><%= @myposts.count %> 건</h3></a>  -->
+	                    <!--    </div>-->
+	                    <!--    <div style="left: 100px;">-->
+    	                <!--        받은 메시지-->
+    	                <!--        <a href="/board/message_check"><h3><%= @reply_count %>건</h3></a> -->
+	                    <!--    </div>-->
+	                    <!--    <div style="left: 200px;">-->
+    	                <!--        성사된 미팅-->
+    	                <!--        <h3><%= @apply_count %> 건</h3>-->
+	                    <!--    </div>-->
+	                    <!--</div>-->
+	                </div>
+	            </div>            
+
+	    </section>    
+    </div>
+
+    <section class="work_area" id="WORK">
+        <div class="col-md-12 col-xs-12 text-center">
+            <div class="work_title  wow fadeInUp animate-d">
+                <h1>새 게시글</h1>
+                <img src="../assets/shape.png" alt="">
+                <section class="services" id="SERVICE">
+                    <div class="row" style="margin-top: 50px;">
+                        <!-- each문 작성 하는 곳 -->
+                        <% @write.each do |b| %>
+                        <a href="/board/posts/<%= b.id %>">
+                            <div class="col-md-3 text-center" style="height: 420px;">
+                                <div class="single_service wow fadeInUp" style="height:400px">
+                              
+                                    <!--<img src="<%= User.find(b.user_id).images %>" width="250px" height="300px">-->
+<%if User.find(b.user_id).images.present? %>
+   <img src="<%= User.find(b.user_id).images %>" width="200px" height="200px" class="img-circle" id="img-circle2">
+<% else %>
+   <img src="../assets/avatar.png" width="200px" height="200px">
+<%end%>                                    
+                         
+                             
+                                    <h2 style="color:#f73b76"><%= b.board_title %></h2>
+                        </a>
+                                    <h4><%= User.find(b.user_id).nickname %></h4>
+                                    <p><%= User.find(b.user_id).school %>/<%= User.find(b.user_id).sex == true ? "남자" : "여자"  %>/<%= b.age %>/<%= b.number %>명</p>
+                                
+                                </div>
+                                
+                            </div>
+                        
+                        <!--종료-->
+                        <% end %>
+                    </div>
+                    <center>
+                     <a href="/board/mboard"><div style="width:30%; min-width: 300px; margin-top: 0px; margin-bottom: 20px; color:black;">전체 게시글 보기<span style="color:#f63a55; font-weight:bold;"> > </span></div></a>
+                    </center>
+                </section>
+            </div>
+            <!--<div class="bottom" style="margin-bottom:50px">-->
+            <!--    <img style="margin-top:130px;" src="../assets/shape.png" alt="">-->
+            <!--    <div>게시글 더보기</div>-->
+            <!--</div>-->
+        </div>
+    </section>
+        
+                
+
+<!-- 프로필 수정 팝업창 -->
+    <div id="myModal" class="modal fade">
+        <form class="form-horizontal" action="/board/modify_profile" method="POST">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">프로필 수정하기</h4>
+                    </div>
+                    
+                    <div class="modal-body">             
+                              <div class="form-group">
+                                <label class="col-sm-3 control-label">닉네임</label>
+                                <div class="col-sm-6">
+                                  <textarea class="form-control" type="text" name="nickname" placeholder="<%=@nickname%>" required="" style="height: 35px;"><%=@nickname%></textarea>
+                                </div>
+                                </div>
+                                 <div class="form-group">
+                              <label class="col-sm-3 control-label" for="formGroupInputLarge">카카오톡 ID</label>
+                                <div class="col-sm-6">
+                                  <textarea class="form-control" type="text" name="kakao" placeholder="<%=@kakao%>" required="" style="height: 35px;"><%=@kakao%></textarea>
+                                </div>                              
+                              </div>
+                              
+                               <div class="form-group">
+                                <label class="col-sm-3 control-label">나이</label>
+                                <div class="col-sm-6">
+                                  <textarea class="form-control" type="text" name="age" placeholder="<%=@age%>" required="" min="19" max="29" style="height: 35px;"><%=@age%></textarea>
+                                </div>
+                                </div>
+                     
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+                        <button type="submit" class="btn btn-danger">수정하기</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+              
+                
+                
+                
+                
+                
+<!-- =========================
+     SCRIPTS 
+============================== -->
+
+
+    <script src="../../assets/js/jquery.min.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/jquery.nicescroll.js"></script>
+    <script src="../../assets/js/owl.carousel.js"></script>
+    <script src="../../assets/js/wow.js"></script>
+    <script src="../../assets/js/script.js"></script>
+
+
+    
+<script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".btn").click(function(){
+		$("#myModal").modal('show');
+	});
+});
+</script>
+
+<style type="text/css">
+    .bs-example{
+    	margin: 20px;
+    }
+</style>
+   
+   
+    
+</script>
+
+
+    

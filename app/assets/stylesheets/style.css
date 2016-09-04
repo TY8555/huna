@@ -380,10 +380,10 @@ you can use the generic selector below, but it's slower:
 /*		width: 200px;*/
 /*	}*/
 /*	.work_title > img{*/
-/*		position: absolute;*/
-/*		left: 50%;*/
-/*		margin-left: -50px;*/
-/*		width: 100px;*/
+		/*position: absolute;*/
+		/*left: 50%;*/
+		/*margin-left: -50px;*/
+		/*width: 100px;*/
 /*	}*/
 /*	.row > a > .col-md-3{*/
 /*		height: auto !important;*/
@@ -398,6 +398,13 @@ you can use the generic selector below, but it's slower:
 		width: 40%;
 	}
 	
+}
+
+@media screen and (max-width:500px){
+	.imac {
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 

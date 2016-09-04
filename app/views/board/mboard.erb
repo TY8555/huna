@@ -1,26 +1,4 @@
-<head>
 
-   <!-- Preloader -->
-  <link rel="stylesheet" href="../../assets/css/preloader.css" type="text/css" media="screen, print"/>
-
-  <!-- Icon Font-->
-  <link rel="stylesheet" href="../../assets/style.css">
-  <link rel="stylesheet" href="../../assets/css/owl.carousel.css">
-  <link rel="stylesheet" href="../../assets/css/owl.theme.default.css">
-  <!-- Animate CSS-->
-  <link rel="stylesheet" href="../../assets/css/animate.css">
-
-  <!-- Bootstrap -->
-  <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
-
-
-
-  <!-- Style -->
-  <link href="../../assets/css/style.css" rel="stylesheet">
-
-  <!-- Responsive CSS -->
-  <link href="../../assets/css/responsive.css" rel="stylesheet">
-</head>
                 <!-- Preloader -->
                 <div id="preloader">
                     <div id="status">&nbsp;</div>
@@ -45,7 +23,7 @@
 	                  <ul class="nav navbar-nav navbar-right">
 	                    <li><a href="/board/index">내 프로필</a></li>
 	                    <li><a href="/board/write">게시글 쓰기</a></li>
-	                    <li><a href="/board/mboard">미팅 게시글</a></li>
+	                    <li><a href="/board/mboard">전체 게시글</a></li>
 	                    <li><a href="/users/log_out">로그아웃</a></li>
                       </ul>
 	                </div><!-- /.navbar-collapse -->
@@ -56,14 +34,17 @@
     
     
 	  <center>
-	  <img src="../../assets/mbannner.png" style="height:100px; margin-bottom: 50px; margin-top: 25px;">
-	  
+
+	  <div class="container" style="background: white;">
+	  <img src="../../assets/mbannner.png" style="height:100px; margin-bottom: 50px; margin-top: 50px;">
+	  </div>
 	  
 	  <!--검색-->
-	  <div class="container" style="background: #f3f3f3;">
+	  
+	  <div class="container" style="background: #fff2ae; margin-top: 10px;">
       <form class="form-horizontal" role="form" action="/board/sboard" method="POST">
         <div class="col-md-12">
-          <div class="row" style = "margin-top:20px">
+          <div class="row" style = "margin-top:20px; color: #373737;">
             <div class="col-md-4">
               <div class="form-group">
                   <label for="s_headcount">인원 수</label>
@@ -105,7 +86,7 @@
           
           
           <p style="margin-top:10px">   
-          <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true" ></span></button>
+          <button type="submit" class="btn btn-default" style=" border: hidden; background: #cb4e4e; color: white; ">검색</button>
           <button type="button" class="btn btn-default" onclick="location.href='/board/mboard'">검색초기화</button>
           </p>
           
@@ -120,7 +101,7 @@
 	  <!--게시글-->
 	  <center>
     <div align="center" class="col-md-8 col-md-offset-2" style="background: white;">
-	  <div style="border: 1px solid #f73b76; border-bottom: hidden; border-right: hidden; border-left: hidden; width:90%; margin-top:20px; margin-bottom:70px;">
+	  <div style="border: 1px solid white; border-bottom: hidden; border-right: hidden; border-left: hidden; width:100%; margin-top:20px; margin-bottom:70px;" >
     	<section class="header parallax home-parallax page" id="fun_facts" style="background-position: 70% -170px;">
                 <div class="container" style="margin-top: 37px; width: 100%;">                 
                    <table class="table">
@@ -132,6 +113,8 @@
                         <th class="cell-stat text-center hidden-xs hidden-sm">인원 수</th>
                         <th class="cell-stat text-center hidden-xs hidden-sm">진행 여부</th>
                         <th class="cell-stat-2x hidden-xs hidden-sm">올린 날짜</th>
+                        
+                        
                       </tr>
                     </thead>
                     <tbody>
@@ -153,7 +136,7 @@
                           <%= User.find(b.user_id).sex == true ? "남자" : "여자"  %>
                         </td>
                         <td align="center">
-                          <h4><a href="/board/posts/<%= b.id %>"><%= b.board_title %></a><br><small><%= User.find(b.user_id).school %>/평균나이:<%= b.age %></small></h4>
+                          <a href="/board/posts/<%= b.id %>"><h4 style="color:#f73b76"><%= b.board_title %></h4></a><small></h4><%= User.find(b.user_id).school %>/평균나이:<%= b.age %></small></h4>
                         </td>
                         <td class="text-center hidden-xs hidden-sm" style="vertical-align: middle">
                           <%= b.number %>명</a>
@@ -162,10 +145,8 @@
                           <%= b.replies.where('apply = ?', true).take.nil? ? "모집중" : "모집완료" %>
                         </td>
                         <td class="hidden-xs hidden-sm" style="vertical-align: middle">
-                        <i class="fa fa-clock-o"></i>
-                     
-                        <%= b.created_at.in_time_zone("Asia/Seoul").strftime("%Y년%m월%d일 %H시%M분") %> </br>
-                        <%= time_ago_in_words(b.created_at) %> ago
+
+                        <%= b.created_at.in_time_zone("Asia/Seoul").strftime("%Y년%m월%d일 %H시%M분") %> </br> <p4 style="color: #a09a9a"><%= time_ago_in_words(b.created_at) %> ago </br>
                     
                         </td>
                       </tr>
