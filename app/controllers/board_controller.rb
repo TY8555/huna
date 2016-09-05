@@ -132,7 +132,7 @@ class BoardController < ApplicationController
         end
         
         if user_arr.count != 0
-            @write = @write.where(user_id: user_arr)
+            @write = @write.where(user_id: user_arr).order("created_at desc").paginate(:page => params[:page], :per_page => 7)
         end
         
         

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get "board/posts/:id" => 'board#posts'
   get "board/mboard"
   post "board/sboard"
+  get "board/sboard"
   post "board/apply"
   get "board/posts"
   get "board/myposts"
