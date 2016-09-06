@@ -179,6 +179,37 @@ class BoardController < ApplicationController
         redirect_to "/board/myposts"
     end
     
+    def destory5
+        @one_board = Board.find(params[:id])
+        @one_board.destroy
+        redirect_to "/board/hunaadmin"
+    end
+    
+    def destory4
+        @one_user = User.find(params[:id])
+      
+        @one_user.board.destroy
+        @one_user.repliy.destroy
+        @one_user.destroy
+        redirect_to "/board/hunaadmin"
+    end
+    
+    def bb
+        @write = Board.all.order("created_at desc")
+        
+    end
+    
+    def hunaadmin
+        @write = Board.all.order("created_at desc")
+        @user = User.all.order("created_at desc")
+        unless session['user_id'].nil?
+            @nickname=User.find(session['user_id']).nickname
+            @school=User.find(session['user_id']).school
+            @age=User.find(session['user_id']).age
+            @email=User.find(session['user_id']).user_email
+        end
+    end    
+    
     def modify2
         @one_board = Board.find(params[:board_id])
         

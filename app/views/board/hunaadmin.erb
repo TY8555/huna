@@ -1,0 +1,74 @@
+<center>
+<h1>유저삭제</h1>
+<% unless @user.nil? %>
+ <% @user.each do |a| %>
+    <tr>
+                          <td class="text-center">
+                            <% if a.sex == true %>
+                                         <img src="/assets/men.png" alt="Man" height="42" width="42"><br>
+                            <% else %>
+                                         <img src="/assets/woman.png" alt="Woman" height="42" width="42"><br>
+                            <% end %>
+                              닉네임
+                              <%= a.nickname %> 
+                              <br>이메일
+                              <%= a.user_email %>
+                          </td>
+    </tr>
+    
+    <form action ='/board/destory4/<%= a.id %>' method="GET">
+        <input type="submit" class="btn btn-danger" value="삭제" style="margin-top:5px; height:30px;"></input>
+    </form>
+ <% end %>  
+
+<% end %> 
+
+
+<br><br>
+<h1>게시글 삭제</h1>
+
+
+
+                    
+                    
+  <!--게시판 불러오기-->
+<tbody>
+
+    
+<!--게시판 불러오기-->
+<% unless @write.nil? %>
+    <% @write.each do |a| %>
+    
+      <tr>
+      <td class="text-center">
+        <% if User.find(a.user_id).sex == true %>
+                     <img src="/assets/men.png" alt="Man" height="42" width="42"><br>
+        <% else %>
+                     <img src="/assets/woman.png" alt="Woman" height="42" width="42"><br>
+        <% end %>
+               
+          <%= User.find(a.user_id).nickname %>
+      </td>
+        <td align="center" style="vertical-align: middle">
+          <h4><a style="color: #f73b76;" href="/board/posts/<%= a.id %>"><%= a.board_title %></a><br><small><%= User.find(a.user_id).school %>/<%= User.find(a.user_id).sex == true ? "남자" : "여자"  %>/평균나이:<%= a.age %></small></h4>
+        </td>
+        <td class="text-center hidden-xs hidden-sm" style="vertical-align: middle"><%= a.number %>명</a></td>
+        <td class="text-center hidden-xs hidden-sm" style="vertical-align: middle"><%= a.replies.where('apply = ?', true).take.nil? ? "모집중" : "모집완료" %></a></td>
+        <td class="hidden-xs hidden-sm" style="vertical-align: middle">
+ 
+        <%= a.created_at.in_time_zone("Asia/Seoul").strftime("%Y년%m월%d일 %H시%M분") %><span style="color: #a09a9a">
+        <%= time_ago_in_words(a.created_at) %> ago </span>
+    
+        </td>
+        <td>
+           
+                
+            <form action ='/board/destory5/<%= a.id %>' method="GET">
+                 <input type="submit" class="btn btn-danger" value="삭제" style="margin-top:5px; height:30px;"></input>
+            </form>
+        </td>
+      </tr>
+    <% end %>  
+    
+<% end %> 
+</tbody>

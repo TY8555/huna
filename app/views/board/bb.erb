@@ -1,0 +1,8 @@
+<% unless @write.nil? %>
+    <% @write.each do |a| %>
+    board: <%= a.id %>
+    user: <%= a.user_id %>
+    <br>
+    
+<% end %>
+<% end %>
