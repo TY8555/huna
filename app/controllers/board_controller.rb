@@ -188,8 +188,7 @@ class BoardController < ApplicationController
     def destory4
         @one_user = User.find(params[:id])
       
-        @one_user.board.destroy
-        @one_user.repliy.destroy
+        
         @one_user.destroy
         redirect_to "/board/hunaadmin"
     end
