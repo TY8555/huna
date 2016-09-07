@@ -198,7 +198,7 @@ class BoardController < ApplicationController
         
     end
     
-    def hunaadmin
+    def iamnotadmin
         @write = Board.all.order("created_at desc")
         @user = User.all.order("created_at desc")
         unless session['user_id'].nil?

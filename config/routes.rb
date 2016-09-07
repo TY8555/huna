@@ -44,7 +44,7 @@ Rails.application.routes.draw do
  get "board/ex"
  
 # 관리자
- get "board/hunaadmin"
+ get "board/iamnotadmin"
  get "board/destory4/:id" => "board#destory4"
  get "board/destory5/:id" => "board#destory5"
  get "board/bb"
