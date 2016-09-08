@@ -106,7 +106,9 @@
                                 <p>평균 나이 : <%= @write.age %></p>
                                 <p>학교 : <%= @school %></p>
                                  <div class="form-group">
-                                  <p>성별:  <%= @sex == true ? "남자" : "여자" %></p> 
+                                  <p>성별:   <%= User.find(@write.user_id).sex == true ? "남자" : "여자"  %></p> 
+                                     
+                                
                                  </div>  
                             </div>
                         </div>
@@ -169,7 +171,7 @@
                                 <p>평균 나이 : <%= @write.age %></p>
                                 <p>학교 : <%= @school %></p>
                                  <div class="form-group">
-                                  <p>성별:  <%= @sex == true ? "남자" : "여자" %></p> 
+                                  <p>성별:   <%= User.find(@write.user_id).sex == true ? "남자" : "여자"  %></p> 
                                  </div>  
                             </div>
                         </div>

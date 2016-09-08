@@ -6,7 +6,7 @@ class BoardController < ApplicationController
         @write = Board.last(4).reverse
         
         
-        
+       
         unless session['user_id'].nil?
             @user = User.find(session['user_id']).images
             @nickname=User.find(session['user_id']).nickname
@@ -84,7 +84,9 @@ class BoardController < ApplicationController
             @nickname=User.find(session['user_id']).nickname
             @school=User.find(session['user_id']).school
             @age=User.find(session['user_id']).age
-            @sex=User.find(session['user_id']).sex
+            
+        
+             
         end
         
     end
@@ -182,7 +184,7 @@ class BoardController < ApplicationController
     def destory5
         @one_board = Board.find(params[:id])
         @one_board.destroy
-        redirect_to "/board/hunaadmin"
+        redirect_to "/board/iamnotadmin"
     end
     
     def destory4
@@ -190,7 +192,7 @@ class BoardController < ApplicationController
       
         
         @one_user.destroy
-        redirect_to "/board/hunaadmin"
+        redirect_to "/board/iamnotadmin"
     end
     
     def bb
