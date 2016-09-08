@@ -170,7 +170,7 @@
                             <div class="col-md-6 col-xs-12 wow fadeInRight animated" style="margin-top:70px; " id="kk">
                                 <p>닉네임 : <%= User.find(@write.user_id).nickname %></p>
                                 <p>평균 나이 : <%= @write.age %></p>
-                                <p>학교 : <%= @school %></p>
+                                <p>학교 : <%= User.find(@write.user_id).school %></p>
                                  <div class="form-group">
                                   <p>성별:   <%= User.find(@write.user_id).sex == true ? "남자" : "여자"  %></p> 
                                  </div>  
