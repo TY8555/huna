@@ -80,14 +80,10 @@ class BoardController < ApplicationController
     
     def posts
         @write = Board.find(params[:id])
-        unless session['user_id'].nil?
-            @nickname=User.find(session['user_id']).nickname
-            @school=User.find(session['user_id']).school
-            @age=User.find(session['user_id']).age
-            
+
         
              
-        end
+ 
         
     end
     
