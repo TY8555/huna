@@ -22,16 +22,16 @@
 	                  <ul class="nav navbar-nav navbar-right">
 	                    <li><a href="/board/index">내 프로필</a></li>
 	                    <li><a href="/board/write">게시글 쓰기</a></li>
-	                    <li><a href="/board/mboard">미팅 게시글</a></li>
+	                    <li><a href="/board/mboard">전체 게시글</a></li>
 	                    <li><a href="/users/log_out">로그아웃</a></li>
                       </ul>
 	                </div><!-- /.navbar-collapse -->
 	              </div><!-- /.container -->
 	            </nav>
 </header>
-
+<body class="header-fixed boxed-layout container" style="margin-top:30px">
     <div class="fun_facts" style="margin-top: 55px; ">
-    	<section class="header parallax home-parallax page" id="fun_facts" style="background-position: 50% -150px; background:#ffb3a9;">
+    	<section class="header parallax home-parallax page" id="fun_facts" style="background-position: 50% -150px; background: #e95c5c; width=300px">
     	       <!--<노란색 #F5B041 >--> 
     	       <!--분홍색: #ffb3a9-->
     	       <!--하늘색: #5499C7-->
@@ -40,37 +40,39 @@
 	            <div class="container">
 	                <div class="row">
 	                    <div class='col-md-6 col-xs-12'>
-	                        <div class="row">
+	                      
                                 <div class="col-md-5 col-xs-6 wow fadeInRight animated" style="float:left; margin-top: 70px; width: 40%">
-                                    <div class="imac" >
+                                    <div class="imac">
                                          <!-- 프로필사진 !-->
                                     
                                                   
                                     <% if @user.present? %>
-                                       <img src="<%= @user %>" class="img-circle" id="img-circle" style="margin-left: 20px;" > 
+                                       <img src="<%= @user %>" class="img-circle" id="img-circle" width="180" height="180" > 
                                        <!--object-fit_fill-->
                                     <% else %>
-                                       <img src="../assets/avatar.png" class="img-circle" >
+                                       <img src="../assets/avatar4.png" class="img-circle" id="img-circle" width="180" height="180" >
                                     <% end %>                                    
          
                                     </div>
                           
                             
                                 </div>
-                                <div class="col-md-5 col-xs-offset-1 col-xs-5 wow fadeInRight animated" style="margin-top:100px; color: white;">
-                                
+                                <div class="col-md-5 col-xs-offset-1 col-xs-5 wow fadeInRight animated" style="margin-top:50px; color: white;" id="kkkk">
+                                <div class="kkkk">
                                     <p>이름 : <%=@nickname%></p>
                                     <p>나이 : <%=@age%></p>
                                     <p>학교 : <%=@school%></p>
                                     <p>성별 : <%= @sex == true ? "남자" : "여자" %></p>
-                                    <a href="" data-toggle = "modal" data-target = "#myModal" style="color: #f73b56;">프로필 수정하기</a>
+                                    <a href="" data-toggle = "modal" data-target = "#myModal" style="color: #c6e2ff; font-weight:bold;">프로필 수정하기</a>
                                 </div>
-                            </div>
+                                </div>
+                            
                         </div>
-                        <div id="kisu" class="col-md-6 col-xs-12 wow fadeInLeft animated" style="float:right; visibility: hidden !important;">
-                            <div style ="margin-top: 30px ">
+                        <div id="kisu" class="col-md-6 col-xs-12 wow fadeInLeft animated" style="float:right; !important;">
+                            <div style ="margin-top: 20px ">
                                 
-    	                        <div class="row">
+    	                        <div class="row" style="margin-left:-50px">
+    	                            
     	                            <div class="col-md-4 col-xs-4">
     	                                <div class="single_count">
     	                                    <!--<i class="icon-toolbox"></i>-->
@@ -82,7 +84,7 @@
     	                                <div class="single_count">
     	                                    <!--<i class="icon-clock"></i>-->
     	                                    <p>받은 메시지</p>
-    	                                    <a href="/board/message_check"><h3><%= @reply_count %>건</h3></a> 
+    	                                    <a href="/board/message_check"><h3><%= @reply_count %> 건</h3></a> 
     	                                </div>                            
     	                            </div>
     	                            <div class="col-md-4 col-xs-4">
@@ -95,11 +97,11 @@
     	                        </div>
 
                                  
-    	                        <div class="col-md-12">
+    	                        <div class="col-md-11">
     	                            
     	                         
-    	                    <div style="margin-top: 40px; margin-left: -40px" class="bbb">
-    	                        <button type="submit" class="btn btn-default submit-btn form_submit" style="border-style:hidden;  margin-bottom: 14px;" onclick="location.href='/board/write'">미팅 게시글 쓰기</button>
+    	                    <div style="margin-top: 40px; margin-left: -40px" class="bbbb">
+    	                        <button type="submit" class="btn btn-nav right glyphicon " style=" border:hidden; background: white; margin-bottom: 14px; width: 100%; min-width: 270px;" onclick="location.href='/board/write'">미팅 게시글 쓰기</button>
                             </div>
 	                    </div>
 	                    </div>
@@ -129,7 +131,7 @@
                 <h1>새 게시글</h1>
                 <img src="../assets/shape.png" alt="">
                 <section class="services" id="SERVICE">
-                    <div class="row" style="margin-top: 50px;">
+                    <div class="row" style="margin-top: 10px;">
                         <!-- each문 작성 하는 곳 -->
                         <% @write.each do |b| %>
                         <a href="/board/posts/<%= b.id %>">
@@ -138,13 +140,13 @@
                               
                                     <!--<img src="<%= User.find(b.user_id).images %>" width="250px" height="300px">-->
 <%if User.find(b.user_id).images.present? %>
-   <img src="<%= User.find(b.user_id).images %>" width="200px" height="200px" class="img-circle" id="img-circle2">
+   <img src="<%= User.find(b.user_id).images %>" width="200px" height="200px" class="img-circle" >
 <% else %>
-   <img src="../assets/avatar.png" width="200px" height="200px">
-<%end%>                                    
-                         
+   <img src="../assets/avatar2.png" width="200px" height="200px" class="img-circle"  >
+<%end%>                  
+          
                              
-                                    <h2 style="color:#f73b76"><%= b.board_title %></h2>
+                                    <h2 style="color:#f73b63"><%= b.board_title %></h2>
                         </a>
                                     <h4><%= User.find(b.user_id).nickname %></h4>
                                     <p><%= User.find(b.user_id).school %>/<%= User.find(b.user_id).sex == true ? "남자" : "여자"  %>/<%= b.age %>/<%= b.number %>명</p>
@@ -172,14 +174,16 @@
 
 <!-- 프로필 수정 팝업창 -->
     <div id="myModal" class="modal fade">
-        <form class="form-horizontal" action="/board/modify_profile" method="POST">
+        <form class="form-horizontal" action="/board/modify_profile" enctype="multipart/form-data" method="POST">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         <h4 class="modal-title">프로필 수정하기</h4>
                     </div>
+            
                     
+               
                     <div class="modal-body">             
                               <div class="form-group">
                                 <label class="col-sm-3 control-label">닉네임</label>
@@ -200,6 +204,14 @@
                                   <textarea class="form-control" type="text" name="age" placeholder="<%=@age%>" required="" min="19" max="29" style="height: 35px;"><%=@age%></textarea>
                                 </div>
                                 </div>
+                                <div class="form-group">
+                                  <label class="col-sm-3 control-label">사진 첨부</br>(프로필)</label>
+                                          <div id="aa" style="padding-left: 5px">
+                                  <input type="file" name="pic" accept="image/*" style="width=200px" >
+                                </div>
+                             
+                               
+                                
                      
                     </div>
                     <div class="modal-footer">
@@ -210,11 +222,14 @@
             </div>
         </form>
     </div>
+<!-- 프로필 수정 팝업 끝 -->
+
+    
 </div>
 </div>
               
-                
-                
+            
+</body>      
                 
                 
                 

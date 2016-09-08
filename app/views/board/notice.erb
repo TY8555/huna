@@ -1,0 +1,116 @@
+
+<style type="text/css">
+h1 {
+	color: #333;
+	font-family: 'Playfair Display';
+	font-size: 60px;
+	font-weight: 500;
+	line-height: 60px;
+	margin-bottom: 60px;
+}
+
+h1:after {
+	background: #d3ab55;
+	content: '';
+	display: block;
+	height: 2px;
+	margin: 40px 0;
+	width: 50px;
+}
+
+p {
+	color: #555;
+
+	font-family: 'Playfair Display';
+	font-size: 22px;
+	line-height: 36px;
+	margin-bottom: 24px;
+}
+
+
+
+</style>
+
+                <!-- Preloader -->
+                <div id="preloader">
+                    <div id="status">&nbsp;</div>
+                </div>
+
+ <header id="HOME" style="background-position: 70% -127px;">
+                <nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom: 0px; background-color:white;">
+	              <div class="container">
+	                <!-- Brand and toggle get grouped for better mobile display -->
+	                <div class="navbar-header">
+	                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                  </button>
+	                  <a class="navbar-brand" href="/board/index"><img src="../../assets/logo.png" alt=""></a>
+	                </div>
+
+	                <!-- Collect the nav links, forms, and other content for toggling -->
+	                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	                  <ul class="nav navbar-nav navbar-right">
+	                  	<li><a href="/board/notice">공지사항</a></a></li>
+	                    <li><a href="/board/index">내 프로필</a></li>
+	                    <li><a href="/board/write">게시글 쓰기</a></li>
+	                    <li><a href="/board/mboard">전체 게시글</a></li>
+	                    <li><a href="/users/log_out">로그아웃</a></li>
+                      </ul>
+	                </div><!-- /.navbar-collapse -->
+	              </div><!-- /.container -->
+	            </nav>
+</header>
+
+
+ <div style="margin-top:50px; border: 2px solid #fff2c5;" class="col-xs-12 ">
+<center>
+	<img src="../assets/3333.png" width="70" height="70">
+<h1>공지사항</h1>
+
+<p> 후나에 와주셔서 감사합니다. </p>
+<p> 후나는 친해지고 싶어도 마땅히 방법이 없던 경희대와 외대를 이어주기 위한 사이트입니다! <p>
+<p> 피드백, 의견 환영합니다</p>
+<p> *(주의) 매너 없는 글, 선정적인들은 경고없이 삭제합니다 </p>
+
+
+<!--<a href="" data-toggle = "modal" data-target = "#myModal"  style="color: #413a3b; margin-top:10px; margin-left:20px;">의견보내기</a>-->
+</center>
+  </div>  
+ 
+ 
+ 
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+        <form class="form-horizontal" action="/board/opinion" method="get">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">의견보내기</h4>
+                    </div>
+                    
+                    <div class="modal-body">
+                        
+           
+                        
+                         <div class="form-group">
+                            
+                            <textarea class="form-control" id="message-text" rows="5" name="opinion" placeholder="나의 의견"></textarea>
+                        </div>
+                        
+                      
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+                        <button type="submit" class="btn btn-danger">보내기</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+     

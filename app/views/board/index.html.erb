@@ -20,6 +20,7 @@
 	                <!-- Collect the nav links, forms, and other content for toggling -->
 	                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
 	                  <ul class="nav navbar-nav navbar-right">
+	                    <li><a href="/board/notice">공지사항</a></a></li>
 	                    <li><a href="/board/index">내 프로필</a></li>
 	                    <li><a href="/board/write">게시글 쓰기</a></li>
 	                    <li><a href="/board/mboard">전체 게시글</a></li>
@@ -63,13 +64,14 @@
                                     <p>나이 : <%=@age%></p>
                                     <p>학교 : <%=@school%></p>
                                     <p>성별 : <%= @sex == true ? "남자" : "여자" %></p>
-                                    <a href="" data-toggle = "modal" data-target = "#myModal" style="color: #c6e2ff; font-weight:bold;">프로필 수정하기</a>
+                                    <a href="" data-toggle = "modal" data-target = "#myModal" style="color: #c6e2ff; font-weight:bold;">프로필 수정하기</a><br>
+                                    <a href="/board/dropout" style="color: #000000; font-weight:bold;">회원 탈퇴</a>
                                 </div>
                                 </div>
                             
                         </div>
                         <div id="kisu" class="col-md-6 col-xs-12 wow fadeInLeft animated" style="float:right; !important;">
-                            <div style ="margin-top: 20px ">
+                            <div style ="margin-top: 40px ">
                                 
     	                        <div class="row" style="margin-left:-50px">
     	                            
@@ -174,7 +176,7 @@
 
 <!-- 프로필 수정 팝업창 -->
     <div id="myModal" class="modal fade">
-        <form class="form-horizontal" action="/board/modify_profile" method="POST">
+        <form class="form-horizontal" action="/board/modify_profile" enctype="multipart/form-data" method="POST">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -204,11 +206,11 @@
                                   <textarea class="form-control" type="text" name="age" placeholder="<%=@age%>" required="" min="19" max="29" style="height: 35px;"><%=@age%></textarea>
                                 </div>
                                 </div>
-                                <!--<div class="form-group">-->
-                                <!--  <label class="col-sm-3 control-label">사진 첨부</br>(프로필)</label>-->
-                                <!--          <div id="aa" style="padding-left: 5px">-->
-                                <!--  <input type="file" name="pic" accept="image/*" style="width=200px" >-->
-                                <!--</div>-->
+                                <div class="form-group">
+                                  <label class="col-sm-3 control-label">사진 첨부</br>(프로필)</label>
+                                          <div id="aa" style="padding-left: 5px">
+                                  <input type="file" name="pic" accept="image/*" style="width=200px" >
+                                </div>
                              
                                
                                 

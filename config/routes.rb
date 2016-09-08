@@ -29,6 +29,11 @@ Rails.application.routes.draw do
   get "board/ask"
   get "board/destory3/:id" => "board#destory3"
   
+  #회원탈퇴
+  get "board/dropout"
+  get "board/destorymyid"
+  get "main/goodbye"
+  
   # 유저정보 관련 주소
   get "users/signup"
   get "users/create"
@@ -48,6 +53,10 @@ Rails.application.routes.draw do
  get "board/destory4/:id" => "board#destory4"
  get "board/destory5/:id" => "board#destory5"
  get "board/bb"
+ get "board/notice"
+ get "board/noticewrite"
+ get "board/opinion"
+ 
   
   
   

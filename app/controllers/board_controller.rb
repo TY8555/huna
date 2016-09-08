@@ -195,6 +195,17 @@ class BoardController < ApplicationController
         redirect_to "/board/iamnotadmin"
     end
     
+    
+    
+    def destorymyid
+        me = User.find(session['user_id'])
+        me.destroy
+        redirect_to  "/main/goodbye"
+
+    end
+    
+    
+    
     def bb
         @write = Board.all.order("created_at desc")
         
@@ -301,16 +312,19 @@ class BoardController < ApplicationController
     end
     
     
+    def dropout
+        
+    end
+    
     
     
     
     
     def ex
-        #수정된 부분: ex.erb/ board_cont / replies db
-        
         @write = Board.last(4).reverse
         
         
+       
         unless session['user_id'].nil?
             @user = User.find(session['user_id']).images
             @nickname=User.find(session['user_id']).nickname
@@ -330,8 +344,22 @@ class BoardController < ApplicationController
         @myposts.each do |mypost|
             @reply_count += mypost.replies.count
         end
+    end
+    
+    def noticewrite
         
     end
+    
+    def notice
+        
+       
+        
+    end
+    
+    def opinion
+       
+        
+    end 
     
 
 end
